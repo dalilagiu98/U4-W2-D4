@@ -88,6 +88,9 @@ public class Application {
             System.out.println("-----------------------------");
         });
 
+        System.out.println("--------------GET MOST EXPENSIVE PRODUCT-------------");
+        getMostExpensive().forEach(System.out::println);
+
     }
 
     public static Map<Customer, List<Order>> getOrderByCustomer() {
@@ -96,5 +99,9 @@ public class Application {
 
     public static Map<String, Double> getOrderAndTotal() {
         return orderList.stream().collect(Collectors.groupingBy(order -> order.getCustomer().getName() , Collectors.summingDouble(order -> order.getTotal())));
+    }
+
+    public static List<Product> getMostExpensive() {
+        return productList.stream().sorted(Comparator.comparing(Product::getPrice).reversed()).limit(10).collect(Collectors.toList());
     }
 }
