@@ -54,4 +54,8 @@ public class Order {
     public List<Product> getProducts() {
         return products;
     }
+
+    public long getId() {
+        return id;
+    }
 }

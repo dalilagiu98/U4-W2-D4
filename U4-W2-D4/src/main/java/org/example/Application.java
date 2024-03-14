@@ -91,6 +91,9 @@ public class Application {
         System.out.println("--------------GET MOST EXPENSIVE PRODUCT-------------");
         getMostExpensive().forEach(System.out::println);
 
+        System.out.println("--------------GET ORDER AVERAGE-------------");
+        System.out.println(getOrderAverage());
+
     }
 
     public static Map<Customer, List<Order>> getOrderByCustomer() {
@@ -103,5 +106,9 @@ public class Application {
 
     public static List<Product> getMostExpensive() {
         return productList.stream().sorted(Comparator.comparing(Product::getPrice).reversed()).limit(10).collect(Collectors.toList());
+    }
+
+    public static double getOrderAverage() {
+        return orderList.stream().mapToDouble(Order::getTotal).average().orElse(0.0);
     }
 }
