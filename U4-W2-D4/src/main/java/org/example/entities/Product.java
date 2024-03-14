@@ -29,4 +29,8 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
+    public double getPrice() {
+        return price;
+    }
 }

@@ -29,4 +29,29 @@ public class Order {
     //METHODS:
     public void addProduct(Product product) {
         products.add(product);
-    }}
+    }
+
+    public double getTotal () {
+        return this.products.stream().mapToDouble(product -> product.getPrice()).sum();
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                ", orderDate=" + orderDate +
+                ", deliveryDate=" + deliveryDate +
+                ", products=" + products +
+                ", customer=" + customer +
+                '}';
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+}
