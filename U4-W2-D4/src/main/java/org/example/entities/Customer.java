@@ -2,19 +2,18 @@ package org.example.entities;
 
 import java.util.Random;
 
-public class Product {
-    //ATTRIBUTES LIST
+public class Customer {
+
+    //ATTRIBUTES LIST:
     private long id;
     private String name;
-    private String category;
-    private double price;
+    private int tier;
 
     //CONSTRUCTOR:
-    public Product(String name, String category, double price) {
+    public Customer(String name, int tier) {
         Random random = new Random();
         this.id = random.nextLong();
         this.name = name;
-        this.category = category;
-        this.price = price;
+        this.tier = tier;
     }
 }
