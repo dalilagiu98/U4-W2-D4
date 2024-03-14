@@ -25,4 +25,8 @@ public class Order {
         this.products = new ArrayList<>();
         this.customer = customer;
     }
-}
+
+    //METHODS:
+    public void addProduct(Product product) {
+        products.add(product);
+    }}

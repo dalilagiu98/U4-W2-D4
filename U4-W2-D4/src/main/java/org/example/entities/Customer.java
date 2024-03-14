@@ -10,10 +10,21 @@ public class Customer {
     private int tier;
 
     //CONSTRUCTOR:
-    public Customer(String name, int tier) {
+    public Customer(String name) {
         Random random = new Random();
         this.id = random.nextLong();
         this.name = name;
-        this.tier = tier;
+        this.tier = random.nextInt(0, 10);
+    }
+
+    //METHODS:
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", tier=" + tier +
+                '}';
     }
 }
