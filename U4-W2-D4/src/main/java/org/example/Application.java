@@ -94,6 +94,9 @@ public class Application {
         System.out.println("--------------GET ORDER AVERAGE-------------");
         System.out.println(getOrderAverage());
 
+        System.out.println("--------------GET CATEGORY AND SUM-------------");
+        System.out.println(getCategoryAndSum());
+
     }
 
     public static Map<Customer, List<Order>> getOrderByCustomer() {
@@ -110,5 +113,9 @@ public class Application {
 
     public static double getOrderAverage() {
         return orderList.stream().mapToDouble(Order::getTotal).average().orElse(0.0);
+    }
+
+    public static Map<String, Double> getCategoryAndSum() {
+        return productList.stream().collect(Collectors.groupingBy(Product::getCategory, Collectors.averagingDouble((Product::getPrice))));
     }
 }
